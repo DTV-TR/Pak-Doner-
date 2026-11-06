@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pak Döner Menü</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+        h1 {
+            color: #f1c40f;
+            margin-top: 10px;
+        }
+        .kategori-baslik {
+            background: #2c3e50;
+            color: #f1c40f;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+            margin: 20px 0 10px 0;
+            border-radius: 5px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .urun-kart {
+            background: #fff;
+            color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        .urun-bilgi {
+            flex: 1;
+            padding-right: 10px;
+        }
+        .urun-kart h3 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .urun-kart p {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .fiyat-kutu {
+            background: #f1c40f;
+            color: #000;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 6px;
+            text-align: center;
+            min-width: 90px;
+        }
+        .urun-resim {
+            width: 70px;
+            height: 70px;
+            border-radius: 6px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        /* STOK BİTTİ (TÜKENDİ) ÖZELLİĞİ */
+        .urun-kart.tukendi {
+            opacity: 0.5;
+            pointer-events: none;
+            background: #ddd;
+        }
+        .urun-kart.tukendi h3 {
+            text-decoration: line-through;
+            color: #999;
+        }
+        .tukendi-etiket {
+            display: none;
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #ff4d4d;
+            font-size: 1.2rem;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+        }
+        .urun-kart.tukendi .tukendi-etiket {
+            display: flex;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://qrmenu.pakdoner.info/assets/logo.png" alt="Pak Döner Logo" onerror="this.src='https://via.placeholder.com/80'">
+        <h1>Pak Döner Menü</h1>
+    </header>
+
+    <!-- TAVUK DÜRÜMLER -->
+    <div class="kategori-baslik">Tavuk Dürümler</div>
+    <div class="menu-grid">
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Lavaşta Tavuk Dürüm</h3>
+                <p>90 gr. Döner, Marul, Cips, Sos ve Özel...</p>
+            </div>
+            <div class="fiyat-kutu">190.00 TL</div>
+        </div>
+        <div class="urun-kart tukendi"> <!-- Stok bitti örneği -->
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Pidede Tavuk Dürüm</h3>
+                <p>90 gr. Döner, Marul, Cips, Sos ve Özel...</p>
+            </div>
+            <div class="fiyat-kutu">190.00 TL</div>
+            <div class="tukendi-etiket">STOKTA YOK</div>
+        </div>
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Sandviçte Tavuk Dürüm</h3>
+                <p>90 gr. Döner, Marul, Cips, Sos ve Özel...</p>
+            </div>
+            <div class="fiyat-kutu">200.00 TL</div>
+        </div>
+    </div>
+
+    <!-- ET DÜRÜMLER -->
+    <div class="kategori-baslik">Et Dürümler</div>
+    <div class="menu-grid">
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Lavaşta Et Dürüm</h3>
+                <p>90 gr. Döner Cips, Maydanoz ve Sos ile</p>
+            </div>
+            <div class="fiyat-kutu">270.00 TL</div>
+        </div>
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Pide Et Dürüm</h3>
+                <p>90 gr. Döner Cips, Maydanoz ve Sos ile</p>
+            </div>
+            <div class="fiyat-kutu">270.00 TL</div>
+        </div>
+    </div>
+
+    <!-- PATATES KEYFİ -->
+    <div class="kategori-baslik">Patates Keyfi</div>
+    <div class="menu-grid">
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Patates Tabağı Büyük</h3>
+                <p>Kajun Baharatı ile (2 yada 3 kişilik)</p>
+            </div>
+            <div class="fiyat-kutu">180.00 TL</div>
+        </div>
+    </div>
+
+    <!-- SERVİSLER TABAKTA -->
+    <div class="kategori-baslik">Servisler Tabakta</div>
+    <div class="menu-grid">
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Tavuk Servis</h3>
+                <p>145 gr. Tavuk, Mevsim Salata ...</p>
+            </div>
+            <div class="fiyat-kutu">300.00 TL</div>
+        </div>
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Et Servis</h3>
+                <p>145 gr. Et, Mevsim Salata, Taze Pide ...</p>
+            </div>
+            <div class="fiyat-kutu">420.00 TL</div>
+        </div>
+    </div>
+
+    <!-- ÖZEL SARIMLAR -->
+    <div class="kategori-baslik">Özel Sarımlar</div>
+    <div class="menu-grid">
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>45 cm Uzun İçi 1,5 Tavuk Füze</h3>
+                <p>145 gr. Döner, Marul, Cips, Sos ve...</p>
+            </div>
+            <div class="fiyat-kutu">285.00 TL</div>
+        </div>
+    </div>
+
+    <!-- KARIŞIK LEZZETLER -->
+    <div class="kategori-baslik">Karışık Lezzetler</div>
+    <div class="menu-grid">
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Lavaşta Et, Tavuk Karışık Dürüm</h3>
+                <p>90 gr. Et ve Tavuk Karışık, Marul, Cip...</p>
+            </div>
+            <div class="fiyat-kutu">230.00 TL</div>
+        </div>
+    </div>
+
+    <!-- PROTEİNLİ SALATALAR -->
+    <div class="kategori-baslik">Proteinli Salatalar</div>
+    <div class="menu-grid">
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Salata Üstü Tavuk Döner</h3>
+                <p>145 gr. Yaprak Tavuk (Roka, ...</p>
+            </div>
+            <div class="fiyat-kutu">300.00 TL</div>
+        </div>
+    </div>
+
+    <!-- TATLI KÖŞESİ -->
+    <div class="kategori-baslik">Tatlı Köşesi</div>
+    <div class="menu-grid">
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Çıtır Kabak Tatlısı</h3>
+                <p>Orijinal Tahin ve Çifte Kavrulmuş...</p>
+            </div>
+            <div class="fiyat-kutu">220.00 TL</div>
+        </div>
+    </div>
+
+    <!-- İÇECEKLER -->
+    <div class="kategori-baslik">İçecekler</div>
+    <div class="menu-grid">
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>330ml Kutu Pepsi</h3>
+                <p>Soğuk İçecek</p>
+            </div>
+            <div class="fiyat-kutu">70.00 TL</div>
+        </div>
+        <div class="urun-kart">
+            <img src="https://via.placeholder.com/70" class="urun-resim" alt="">
+            <div class="urun-bilgi">
+                <h3>Eker 293ml Ayran</h3>
+                <p>Ayran</p>
+            </div>
+            <div class="fiyat-kutu">50.00 TL</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Pak Döner QR Menü</p>
+    </footer>
+
+</body>
+</html>
